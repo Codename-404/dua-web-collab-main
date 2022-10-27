@@ -2,11 +2,21 @@ import Master from "../components/Layout/Master";
 import Rodal from "rodal";
 import DuaPopup from "../components/Modal/DuaPopup/DuaPopup";
 import "rodal/lib/rodal.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NumCard from "../components/Utils/NumCard";
+import useFetch from "../controller/API/useFetch";
+import PUrls from "../dataStore/api/urls";
 
 const AllDua = () => {
   const [modalShow, setModalShow] = useState(false);
+  const min = 0;
+  const max = 1000;
+  const url = `${PUrls.dua}${min}/${max}`;
+  // console.log(url);
+
+  const { data } = useFetch(PUrls.books + "en");
+  // console.log(`fetched Duas:${data.result.length}`);
+
   return (
     <Master title={"All Dua"}>
       <div

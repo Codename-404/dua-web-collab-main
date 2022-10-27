@@ -1,6 +1,9 @@
 import React from "react";
+import useCheckInput from "../../../controller/customHooks/useCheckInput";
 
 function FolderName() {
+  const [value, setValue] = React.useState("");
+
   return (
     <>
       <label className="block">
@@ -13,6 +16,10 @@ function FolderName() {
             type="text"
             name="folder"
             placeholder="Title Name"
+            onChange={(e) => {
+              setValue(useCheckInput(e.target.value));
+            }}
+            value={value}
           />
         </div>
       </label>

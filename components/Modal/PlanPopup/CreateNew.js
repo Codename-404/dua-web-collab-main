@@ -1,6 +1,9 @@
 import React from "react";
+import useCheckInput from "../../../controller/customHooks/useCheckInput";
 
 function CreateNew() {
+  const [value, setValue] = React.useState("");
+
   return (
     <label className="block">
       <div className="mb-5">
@@ -12,6 +15,10 @@ function CreateNew() {
           type="text"
           name="plan"
           placeholder="Name of new plan"
+          onChange={(e) => {
+            setValue(useCheckInput(e.target.value));
+          }}
+          value={value}
         />
       </div>
     </label>
